@@ -59,6 +59,10 @@ public class AdapterPost extends RecyclerView.Adapter<AdapterPost.MyViewHolder> 
         return arrayList.size();
     }
 
+
+
+
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ItemAnswerBinding binding;
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/DeleteFolder"
+        android:title="Delete Folder"
+        />
+
+    <item
+        android:id="@+id/RenameFolder"
+        android:title="Folder Rename"
+        />
+
+    <item
+        android:id="@+id/ChaneFolderImage"
+        android:title="Change Folder Image "
+        />
+
+</menu>

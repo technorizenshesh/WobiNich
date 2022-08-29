@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">WobiNich</string>
+    <string name="forgot_password"><u>Forgot Password?</u></string>
+    <string name="change_picture">Change Picture</string>
+
+    <string name="checkInternet">Please Check Your Internet Connection</string>
+    <string name="place_api_key">AIzaSyC4Eg_qGdkZrcW-td6QsmJAk2g4nzPaat0</string>
+
+    <string name="select_action">Select Action</string>
+    <string name="select_photo_from_gallery">Select photo from gallery</string>
+    <string name="capture_photo_from_camera">Capture photo from camera</string>
+    <string name="title_activity_google_map">Map</string>
+    <string name="title_activity_google_mapp">Map</string>
+    <string name="data_not_available">data not available</string>
+    <string name="please_enter_your_answer">Please enter your answer</string>
+    <string name="chat_not_available">chat not available</string>
+</resources>

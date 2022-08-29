@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_color"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_color"
+            >
+
+            <RelativeLayout
+                android:id="@+id/RRtoolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/RRBack"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="match_parent"
+                    >
+
+                    <ImageView
+                        android:tint="@color/blue"
+                        android:src="@drawable/back"
+                        android:layout_centerInParent="true"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        tools:ignore="UseAppTint">
+                    </ImageView>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/RRMenu"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="match_parent"
+                    >
+
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/menu"></ImageView>
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal"
+                    android:id="@+id/RRUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    >
+
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:src="@drawable/heart"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        >
+
+                    </ImageView>
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:id="@+id/txtForogtPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="I love it"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/_16sdp" />
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/RRview"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <View
+                    android:background="@color/lightblue"
+                    android:layout_width="match_parent"
+                    android:layout_height="2sp"
+                    >
+                </View>
+
+                <View
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:background="@color/blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="2sp"
+                    >
+                </View>
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_70sdp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/img2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgArrow"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/green_arw"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        >
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/img_click"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/frame"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_60sdp"
+                        >
+                    </ImageView>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@+id/img2"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+                        android:fontFamily="@font/poppins_semibold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="John SMith"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:fontFamily="@font/poppins_semibold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="EL Sol, Madraid, Spain"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:fontFamily="@font/poppins_semibold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="19-11-2021"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:visibility="visible"
+                android:id="@+id/LLimg"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <RelativeLayout
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_70sdp"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/img3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:visibility="invisible"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/green_arw"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            >
+                        </ImageView>
+
+                        <ImageView
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/frame"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_60sdp"
+                            >
+                        </ImageView>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_centerInParent="true"
+                        android:layout_toRightOf="@+id/img3"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <TextView
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="John SMith"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="EL Sol, Madraid, Spain"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="19-11-2021"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            />
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_70sdp"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/img4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:visibility="invisible"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/green_arw"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            >
+                        </ImageView>
+
+                        <ImageView
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/frame"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_60sdp"
+                            >
+                        </ImageView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_centerInParent="true"
+                        android:layout_toRightOf="@+id/img4"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <TextView
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="John SMith"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="EL Sol, Madraid, Spain"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="19-11-2021"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            />
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+
+                <ImageView
+                    android:src="@drawable/menu"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    >
+                </ImageView>
+
+                <ImageView
+                    android:layout_marginLeft="@dimen/_100sdp"
+                    android:src="@drawable/menu"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    >
+                </ImageView>
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20sp"
+                android:scaleType="fitXY"
+                android:src="@drawable/green_line">
+
+            </ImageView>
+
+            <RelativeLayout
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+             >
+
+                <ProgressBar
+                    android:layout_gravity="center"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/progressBar"
+                    android:background="@drawable/progresh_background"
+                    android:elevation="6dp"
+                    android:padding="5dp"
+                    android:indeterminate="true"
+                    android:indeterminateTintMode="src_atop"
+                    android:indeterminateTint="@color/purple_200"
+                    android:visibility="gone"
+                    />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerGrp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_marginTop="-20dp"
+                android:layout_marginRight="@dimen/_50sdp"
+                android:layout_marginLeft="@dimen/_50sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60sdp"
+                >
+
+
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:src="@drawable/landscape_folder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                </ImageView>
+
+
+                <ImageView
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:src="@drawable/landscape_folder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                </ImageView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60sdp"
+                >
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:src="@drawable/landscape_folder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                </ImageView>
+
+                <ImageView
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:src="@drawable/landscape_folder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                </ImageView>
+
+                <ImageView
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:src="@drawable/landscape_folder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                </ImageView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

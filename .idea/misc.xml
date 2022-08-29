@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_add_post.xml" value="0.17291666666666666" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_change_grp_picture.xml" value="0.11458333333333333" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_create_groups.xml" value="0.1" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_email.xml" value="0.1" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_grp_chat_details.xml" value="0.1" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_grp_view_all_post.xml" value="0.1" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_koln.xml" value="0.1875" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_koln_details.xml" value="0.1875" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_meal_details.xml" value="0.1875" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_personal_chat.xml" value="0.12454710144927536" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_wobi_nich_comment.xml" value="0.1875" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_yes.xml" value="0.20416666666666666" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/item_answer.xml" value="0.17291666666666666" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/item_chat_details.xml" value="0.11875" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/item_grp_all_post.xml" value="0.20416666666666666" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/item_post_answer.xml" value="0.17291666666666666" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/item_yes_post_blue.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

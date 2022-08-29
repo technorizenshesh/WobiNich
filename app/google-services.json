@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "367403195797",
+    "project_id": "wobinich-8bf50",
+    "storage_bucket": "wobinich-8bf50.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367403195797:android:13cf8e2ae6d253d587ea9c",
+        "android_client_info": {
+          "package_name": "com.my.wobinichapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "367403195797-d4tm23r5vhbqm5dl2og58k9ou0k5r2k3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.my.wobinichapp",
+            "certificate_hash": "07601957272bd2cdcf2c4b144175d46a1c7cc098"
+          }
+        },
+        {
+          "client_id": "367403195797-3k46via8n2r2eoe182or898o70di5kba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUBVsbw2NCPTevN5AJ7TTm0-id-d9MZyk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "367403195797-3k46via8n2r2eoe182or898o70di5kba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

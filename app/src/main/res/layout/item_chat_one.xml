@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout
+        android:layout_margin="@dimen/_4sdp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/_5sdp"
+            android:text="Today"
+            android:textColor="#444540"
+            android:fontFamily="@font/poppins_regular"
+            android:visibility="gone"
+            />
+
+        <RelativeLayout
+            android:id="@+id/itemLeft"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/tv_date"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:elevation="@dimen/_10sdp"
+           >
+
+            <LinearLayout
+                android:id="@+id/layoutUserLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivUserLeft"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/user" />
+
+                <TextView
+                    android:id="@+id/tvNameUserLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="jhone"
+                    android:textColor="#D36044"
+                    android:textFontWeight="600"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tvTimeUserLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="(10:02)"
+                    android:textColor="#D36044"
+                    android:textFontWeight="200"
+                    android:textSize="@dimen/_8sdp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/messageLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layoutUserLeft"
+                android:layout_centerVertical="true"
+                android:background="@drawable/border_btn"
+                android:textFontWeight="400"
+                android:elevation="@dimen/_3sdp"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingEnd="@dimen/_30sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:text="What is the best time we will meet and where are we meeting?"
+                android:textColor="#444540"
+                android:textSize="@dimen/_12sdp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageLeftTick"
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_10sdp"
+                android:adjustViewBounds="true"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:scaleType="fitXY"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/itemRight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/itemLeft"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:elevation="@dimen/_10sdp"
+            android:gravity="end"
+            >
+
+            <LinearLayout
+                android:id="@+id/layoutUserRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_alignParentEnd="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvNameUserRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="jhone"
+                    android:textColor="#D36044"
+                    android:textFontWeight="600"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tvTimeUserRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="(10:02)"
+                    android:textColor="#D36044"
+                    android:textFontWeight="200"
+                    android:textSize="@dimen/_8sdp" />
+
+                <ImageView
+                    android:id="@+id/ivUserRight"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/user" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/layoutUserRight"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/border_btn"
+                android:elevation="@dimen/_3sdp"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_5sdp">
+
+                <TextView
+                    android:id="@+id/messageRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textFontWeight="400"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:text="Hello Harshit "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imageRightTick"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_10sdp"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="bottom"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:scaleType="fitXY"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

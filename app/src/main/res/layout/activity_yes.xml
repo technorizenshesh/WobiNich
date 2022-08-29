@@ -1,0 +1,1255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ProgressBar
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/progressBar"
+                android:background="@drawable/progresh_background"
+                android:elevation="6dp"
+                android:padding="5dp"
+                android:indeterminate="true"
+                android:indeterminateTintMode="src_atop"
+                android:indeterminateTint="@color/purple_200"
+                android:visibility="gone"
+                />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg_color"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/RRtoolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    >
+
+                    <RelativeLayout
+                        android:id="@+id/RRBack"
+                        android:layout_alignParentLeft="true"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="match_parent"
+                        >
+
+                        <ImageView
+                            android:tint="@color/blue"
+                            android:src="@drawable/back"
+                            android:layout_centerInParent="true"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            tools:ignore="UseAppTint">
+                        </ImageView>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/RRAdd"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="match_parent"
+                        >
+
+                        <ImageView
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/menu"></ImageView>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_centerInParent="true"
+                        android:id="@+id/RRimgLeftMenu"
+                        android:layout_width="@dimen/_36sdp"
+                        android:layout_height="@dimen/_36sdp"
+                        >
+
+                        <ImageView
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            android:id="@+id/ImgIcon"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/greenee"
+                            />
+
+                        <RelativeLayout
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:background="@drawable/border_btn_yellow"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <TextView
+                                android:visibility="gone"
+                                android:padding="@dimen/_5sdp"
+                                android:id="@+id/txtCount"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:textSize="@dimen/_8sdp"
+                                android:text="0"
+                                android:layout_centerInParent="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                >
+
+                            </TextView>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+                <View
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    android:background="@color/blue"
+                    android:layout_toLeftOf="@+id/RRview"
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp">
+
+                </View>
+
+
+
+                <!--
+                                    violate start
+                -->
+                <RelativeLayout
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/imgpurple"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:scaleType="fitXY"
+                            android:src="@drawable/pink_arw"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            >
+                        </ImageView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llonepurple1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/imgpurple">
+
+                        <ImageView
+                            android:id="@+id/imgpurple11"
+                            android:layout_width="@dimen/_90sdp"
+                            android:layout_height="@dimen/_70sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/frame"></ImageView>
+
+                        <LinearLayout
+                            android:id="@+id/llgiPurple"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_toRightOf="@+id/img3"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/txtGrpName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="To Group Friends      "
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <RadioButton
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="-5dp"
+                                android:buttonTint="@color/purple"
+                                android:checked="true"
+                                android:text="Give Up"
+                                android:textColor="@color/black">
+
+                            </RadioButton>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_5sdp"
+                                android:layout_marginTop="-5dp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="ok"
+                                android:textColor="@color/purple"
+                                android:textSize="@dimen/_12sdp" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:visibility="gone"
+                        android:layout_below="@+id/llonepurple1"
+                        android:id="@+id/recyclerPurple"
+                        android:nestedScrollingEnabled="false"
+                        android:layout_toRightOf="@+id/imgpurple"
+                        android:layout_height="wrap_content"
+                        >
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_75sdp"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/img3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:scaleType="fitXY"
+                            android:src="@drawable/pink_arw"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            >
+                        </ImageView>
+
+                        <ImageView
+                            android:id="@+id/imgPurple"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/frame"
+                            android:layout_width="@dimen/_90sdp"
+                            android:layout_height="@dimen/_70sdp"
+                            >
+                        </ImageView>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/llgi"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_centerInParent="true"
+                        android:layout_toRightOf="@+id/img3"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <TextView
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="To Group Friends      "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <RadioButton
+                            android:layout_marginTop="-5dp"
+                            android:textColor="@color/black"
+                            android:buttonTint="@color/purple"
+                            android:checked="true"
+                            android:text="Give Up"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            >
+
+                        </RadioButton>
+
+                        <TextView
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ok"
+                            android:textColor="@color/purple"
+                            android:textSize="@dimen/_12sdp"
+                            />
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/LLMainFilePurple"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <RelativeLayout
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_70sdp"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/img461"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <ImageView
+                                android:visibility="invisible"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/green_arw"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                >
+                            </ImageView>
+
+                            <ImageView
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/frame"
+                                android:layout_width="@dimen/_90sdp"
+                                android:layout_height="@dimen/_70sdp"
+                                >
+                            </ImageView>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_centerInParent="true"
+                            android:layout_toRightOf="@+id/img461"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="John SMith"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="EL Sol, Madraid, Spain"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="19-11-2021"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_70sdp"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/img321"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <ImageView
+                                android:visibility="invisible"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/green_arw"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                >
+                            </ImageView>
+
+                            <ImageView
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/frame"
+                                android:layout_width="@dimen/_90sdp"
+                                android:layout_height="@dimen/_70sdp"
+                                >
+                            </ImageView>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_centerInParent="true"
+                            android:layout_toRightOf="@+id/img321"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="John SMith"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="EL Sol, Madraid, Spain"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="19-11-2021"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                />
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+
+                    <ImageView
+                        android:src="@drawable/menu"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        >
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_marginLeft="@dimen/_100sdp"
+                        android:src="@drawable/menu"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        >
+                    </ImageView>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:src="@drawable/dotted_purple"
+                    android:layerType="software"
+                    app:tint="@color/lightblue" />
+
+                <!--
+                                violate end
+                -->
+
+
+                <!--green start-->
+
+                <RelativeLayout
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/img2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:scaleType="fitXY"
+                            android:src="@drawable/green_arw"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            >
+                        </ImageView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:id="@+id/llone"
+                        android:layout_toRightOf="@+id/img2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_30sdp"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Data."
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                        <ImageView
+                            android:visibility="gone"
+                            android:id="@+id/imgGreen"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/frame"
+                            android:layout_width="@dimen/_90sdp"
+                            android:layout_height="@dimen/_70sdp"
+                            >
+                        </ImageView>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/llGreenOne"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_centerInParent="true"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="John SMith"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="EL Sol, Madraid, Spain"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="19-11-2021"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:visibility="gone"
+                        android:layout_below="@+id/llone"
+                        android:id="@+id/recyclerMyPost"
+                        android:nestedScrollingEnabled="false"
+                        android:layout_toRightOf="@+id/img2"
+                        android:layout_height="wrap_content"
+                        >
+                    </androidx.recyclerview.widget.RecyclerView>
+
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/LLMainFile"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <RelativeLayout
+                        android:id="@+id/RRGreenTwo"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_70sdp"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/img45"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <ImageView
+                                android:visibility="invisible"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/green_arw"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                >
+                            </ImageView>
+
+                            <ImageView
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/frame"
+                                android:layout_width="@dimen/_90sdp"
+                                android:layout_height="@dimen/_70sdp"
+                                >
+                            </ImageView>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_centerInParent="true"
+                            android:layout_toRightOf="@+id/img45"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="John SMith"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="EL Sol, Madraid, Spain"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="19-11-2021"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                />
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/RRGreenThree"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_70sdp"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/img23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <ImageView
+                                android:visibility="invisible"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/green_arw"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                >
+                            </ImageView>
+
+                            <ImageView
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/frame"
+                                android:layout_width="@dimen/_90sdp"
+                                android:layout_height="@dimen/_70sdp"
+                                >
+                            </ImageView>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_centerInParent="true"
+                            android:layout_toRightOf="@+id/img23"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="John SMith"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="EL Sol, Madraid, Spain"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="19-11-2021"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                />
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+
+                    <ImageView
+                        android:src="@drawable/menu"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        >
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_marginLeft="@dimen/_100sdp"
+                        android:src="@drawable/menu"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        >
+                    </ImageView>
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:src="@drawable/dotted_green"
+                    android:layerType="software"
+                    />
+
+
+            <!--green end-->
+<!--
+                 //////////bule start///////////////////
+-->
+
+                <RelativeLayout
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/imgblue1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:scaleType="fitXY"
+                            android:src="@drawable/blue_arw"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            >
+                        </ImageView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lloneblue"
+                        android:layout_toRightOf="@+id/imgblue1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:id="@+id/imgBlue"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/frame"
+                            android:layout_width="@dimen/_90sdp"
+                            android:layout_height="@dimen/_70sdp"
+                            >
+                        </ImageView>
+
+                        <LinearLayout
+                            android:id="@+id/llbluOne"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_centerInParent="true"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <TextView
+                                android:id="@+id/tvUserName"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="John SMith"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:id="@+id/tvComment"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="EL Sol, Madraid, Spain"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:id="@+id/tvDate"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="19-11-2021"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:visibility="gone"
+                        android:layout_below="@+id/lloneblue"
+                        android:id="@+id/recyclerblue"
+                        android:nestedScrollingEnabled="false"
+                        android:layout_toRightOf="@+id/imgblue1"
+                        android:layout_height="wrap_content"
+                        >
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_70sdp"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/img4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:scaleType="fitXY"
+                            android:src="@drawable/blue_arw"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            >
+
+                        </ImageView>
+
+                        <ImageView
+                            android:id="@+id/imgblue"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/frame"
+                            android:layout_width="@dimen/_90sdp"
+                            android:layout_height="@dimen/_70sdp"
+                            >
+                        </ImageView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llBlueOne"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_centerInParent="true"
+                        android:layout_toRightOf="@+id/img4"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <TextView
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="John SMith"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="EL Sol, Madraid, Spain"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="19-11-2021"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/LLMainFileBlue"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <RelativeLayout
+                        android:id="@+id/RRbluewTwo"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_70sdp"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/img46"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <ImageView
+                                android:visibility="invisible"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/green_arw"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                >
+                            </ImageView>
+
+                            <ImageView
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/frame"
+                                android:layout_width="@dimen/_90sdp"
+                                android:layout_height="@dimen/_70sdp"
+                                >
+                            </ImageView>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_centerInParent="true"
+                            android:layout_toRightOf="@+id/img46"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="John SMith"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="EL Sol, Madraid, Spain"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="19-11-2021"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/RRbluewThree"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_70sdp"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/img32"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <ImageView
+                                android:visibility="invisible"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/green_arw"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                >
+                            </ImageView>
+
+                            <ImageView
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/frame"
+                                android:layout_width="@dimen/_90sdp"
+                                android:layout_height="@dimen/_70sdp"
+                                >
+                            </ImageView>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_centerInParent="true"
+                            android:layout_toRightOf="@+id/img32"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="John SMith"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="EL Sol, Madraid, Spain"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="19-11-2021"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                />
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+
+                    <ImageView
+                        android:src="@drawable/menu"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        >
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_marginLeft="@dimen/_100sdp"
+                        android:src="@drawable/menu"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        >
+                    </ImageView>
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:src="@drawable/dotted_blue"
+                    android:layerType="software"
+                    app:tint="@color/lightblue" />
+
+
+<!--
+                //////////blue end///////////////////
+-->
+
+
+
+
+
+
+
+                <ImageView
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginLeft="@dimen/_22sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/yellow_icon"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    >
+
+                </ImageView>
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Long Press to Delete the Folder. "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp" />
+
+
+                <LinearLayout
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerGrp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/txtEmty"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No Folder Available."
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

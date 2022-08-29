@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/AddNewMeber"
+        android:title="Add New Member"
+        />
+
+    <item
+        android:id="@+id/ChangeGrpPicture"
+        android:title="Change Group Picture" />
+
+    <item
+        android:id="@+id/LeaveGroup"
+        android:title="Leave Group" />
+
+    <item
+        android:id="@+id/ChangeName"
+        android:title="Change Group Name" />
+
+    <item
+        android:id="@+id/AddPost"
+        android:title="Add Post" />
+
+    <item
+        android:id="@+id/ViewAll"
+        android:title="View All Grp Post" />
+
+
+
+</menu>

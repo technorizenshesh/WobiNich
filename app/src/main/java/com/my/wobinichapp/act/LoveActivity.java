@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.my.wobinichapp.Preference;
 import com.my.wobinichapp.R;
 import com.my.wobinichapp.adapter.GerFolderAdapter;
@@ -27,8 +29,11 @@ import com.my.wobinichapp.model.GetFolderModel;
 import com.my.wobinichapp.utils.RetrofitClients;
 import com.my.wobinichapp.utils.SessionManager;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -229,14 +234,14 @@ public class LoveActivity extends AppCompatActivity {
 
         String User_id= Preference.get(LoveActivity.this,Preference.KEY_USER_ID);
 
-        Call<GetFolderModel> call = RetrofitClients
+        Call<ResponseBody> call = RetrofitClients
                 .getInstance()
                 .getApi()
                 .get_folder(User_id,Type);
-        call.enqueue(new Callback<GetFolderModel>() {
+        call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<GetFolderModel> call, Response<GetFolderModel> response) {
-                try {
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+              /*  try {
 
                     binding.progressBar.setVisibility(View.GONE);
 
@@ -259,10 +264,40 @@ public class LoveActivity extends AppCompatActivity {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                }*/
+                binding.progressBar.setVisibility(View.GONE);
+                try {
+                    if (response.isSuccessful()) {
+                        String responseData = response.body() != null ? response.body().string() : "";
+                        JSONObject object = new JSONObject(responseData);
+                        Log.e("Get All Response==", responseData);
+                        if (object.getString("status").equalsIgnoreCase("1")) {
+                          //  binding.ivFolder.setVisibility(View.VISIBLE);
+                          //  binding.tvFolder.setVisibility(View.VISIBLE);
+                          //  binding.llFolder.setVisibility(View.VISIBLE);
+                            GetFolderModel model = new Gson().fromJson(responseData,GetFolderModel.class);
+                            modelList.clear();
+                            modelList.addAll(model.getResult());
+                            if(modelList !=null)
+                            {
+                                setAdapter(modelList);
+                            }
+
+                        } else {
+                            // Toast.makeText(YesActivity.this, object.getString("message"), Toast.LENGTH_SHORT).show();
+                          //  binding.ivFolder.setVisibility(View.GONE);
+                          //  binding.tvFolder.setVisibility(View.GONE);
+                          //  binding.llFolder.setVisibility(View.GONE);
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+
+
             }
             @Override
-            public void onFailure(Call<GetFolderModel> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
                 binding.progressBar.setVisibility(View.GONE);
             }
         });

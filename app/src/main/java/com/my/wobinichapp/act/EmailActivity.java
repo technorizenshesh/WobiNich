@@ -19,6 +19,7 @@ import com.my.wobinichapp.adapter.GetAllPostAdapter;
 import com.my.wobinichapp.adapter.GetAllWordAdapter;
 import com.my.wobinichapp.adapter.GrpListAdapter;
 import com.my.wobinichapp.databinding.ActivityEmailBinding;
+import com.my.wobinichapp.listener.OnAnsRightWrongListener;
 import com.my.wobinichapp.listener.OnAnswerListener;
 import com.my.wobinichapp.model.ChallengeModel;
 import com.my.wobinichapp.model.GetAllWordModel;
@@ -39,7 +40,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class EmailActivity extends AppCompatActivity implements OnAnswerListener {
+public class EmailActivity extends AppCompatActivity implements OnAnswerListener, OnAnsRightWrongListener {
 
     ActivityEmailBinding binding;
     AdapterPost adapter;
@@ -58,7 +59,7 @@ public class EmailActivity extends AppCompatActivity implements OnAnswerListener
     private void initViews() {
         arrayList = new ArrayList<>();
         sessionManager = new SessionManager(EmailActivity.this);
-        adapter = new AdapterPost(EmailActivity.this, arrayList, EmailActivity.this);
+        adapter = new AdapterPost(EmailActivity.this, arrayList, EmailActivity.this, EmailActivity.this);
         binding.rvAnswer.setAdapter(adapter);
 
 
@@ -167,6 +168,7 @@ public class EmailActivity extends AppCompatActivity implements OnAnswerListener
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Log.e("Exception====", e.getStackTrace() + "");
                 }
             }
 
@@ -175,5 +177,63 @@ public class EmailActivity extends AppCompatActivity implements OnAnswerListener
                 binding.progressBar.setVisibility(View.GONE);
             }
         });
+    }
+
+
+    public void chkAnswer(String id, String chk) {
+        String Userid_ID = Preference.get(EmailActivity.this, Preference.KEY_USER_ID);
+        Map<String, String> map = new HashMap<>();
+        map.put("id", id);
+        map.put("answer_is", chk);
+        Log.e("Chk Ans  Request", map.toString());
+        Call<ResponseBody> call = RetrofitClients.getInstance().getApi().check_answer(map);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                binding.progressBar.setVisibility(View.GONE);
+
+                try {
+                    if (response.isSuccessful()) {
+                        String responseData = response.body() != null ? response.body().string() : "";
+                        JSONObject object = new JSONObject(responseData);
+                        Log.e("Chk Ans Response==", responseData);
+                        if (object.getString("status").equalsIgnoreCase("1")) {
+                            if (sessionManager.isNetworkAvailable()) {
+                                binding.progressBar.setVisibility(View.VISIBLE);
+                                getAllAnswer();
+                            } else {
+                                Toast.makeText(EmailActivity.this, R.string.checkInternet, Toast.LENGTH_SHORT).show();
+                            }
+
+                        } else {
+                            Toast.makeText(EmailActivity.this, object.getString("message"), Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Log.e("Exception====", e.getStackTrace() + "");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                binding.progressBar.setVisibility(View.GONE);
+            }
+        });
+    }
+
+
+    @Override
+    public void onRightWrong(String id, boolean chk) {
+        if (sessionManager.isNetworkAvailable()) {
+            binding.progressBar.setVisibility(View.VISIBLE);
+            if (chk == true) chkAnswer(id, "Right");
+            else chkAnswer(id, "Wrong");
+        } else {
+            Toast.makeText(EmailActivity.this, R.string.checkInternet, Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 }

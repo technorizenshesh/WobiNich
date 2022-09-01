@@ -50,7 +50,7 @@ public class YesBluePostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
             if(model.getImage()!=null)
             {
-                Glide.with(mContext).load(model.getImage()).placeholder(R.drawable.frame).error(R.drawable.frame).into(genericViewHolder.imgBlue);
+                Glide.with(mContext).load(model.getImage()).placeholder(R.drawable.dummy).error(R.drawable.frame).into(genericViewHolder.imgBlue);
                 genericViewHolder.tvBlueName.setText(model.getUserName());
                 genericViewHolder.tvBlueAddress.setText(model.getMaps());
                 genericViewHolder.tvBlueDate.setText(model.getDateTime());

@@ -14,4 +14,5 @@
     <string name="data_not_available">data not available</string>
     <string name="please_enter_your_answer">Please enter your answer</string>
     <string name="chat_not_available">chat not available</string>
+    <string name="please_enter_message">Please enter message</string>
 </resources>

@@ -61,27 +61,41 @@ public class GetPostBluVoilet {
         @SerializedName("user_id")
         @Expose
         private String userId;
-        @SerializedName("member_id")
+        @SerializedName("lat")
         @Expose
-        private String memberId;
+        private String lat;
+        @SerializedName("lon")
+        @Expose
+        private String lon;
+        @SerializedName("comment")
+        @Expose
+        private String comment;
+        @SerializedName("maps")
+        @Expose
+        private String maps;
+        @SerializedName("website")
+        @Expose
+        private String website;
+        @SerializedName("group_id")
+        @Expose
+        private String group_id;
+        @SerializedName("user_name")
+        @Expose
+        private String user_name;
+        @SerializedName("image")
+        @Expose
+        private String image;
         @SerializedName("group_name")
         @Expose
         private String groupName;
-        @SerializedName("group_image")
-        @Expose
-        private String groupImage;
-        @SerializedName("description")
-        @Expose
-        private String description;
-        @SerializedName("group_admin")
-        @Expose
-        private String groupAdmin;
-        @SerializedName("chat_status")
-        @Expose
-        private String chatStatus;
-        @SerializedName("date_time")
-        @Expose
-        private String dateTime;
+
+        public String getGroupName() {
+            return groupName;
+        }
+
+        public void setGroupName(String groupName) {
+            this.groupName = groupName;
+        }
 
         public String getId() {
             return id;
@@ -99,62 +113,69 @@ public class GetPostBluVoilet {
             this.userId = userId;
         }
 
-        public String getMemberId() {
-            return memberId;
+        public String getLat() {
+            return lat;
         }
 
-        public void setMemberId(String memberId) {
-            this.memberId = memberId;
+        public void setLat(String lat) {
+            this.lat = lat;
         }
 
-        public String getGroupName() {
-            return groupName;
+        public String getLon() {
+            return lon;
         }
 
-        public void setGroupName(String groupName) {
-            this.groupName = groupName;
+        public void setLon(String lon) {
+            this.lon = lon;
         }
 
-        public String getGroupImage() {
-            return groupImage;
+        public String getComment() {
+            return comment;
         }
 
-        public void setGroupImage(String groupImage) {
-            this.groupImage = groupImage;
+        public void setComment(String comment) {
+            this.comment = comment;
         }
 
-        public String getDescription() {
-            return description;
+        public String getMaps() {
+            return maps;
         }
 
-        public void setDescription(String description) {
-            this.description = description;
+        public void setMaps(String maps) {
+            this.maps = maps;
         }
 
-        public String getGroupAdmin() {
-            return groupAdmin;
+        public String getWebsite() {
+            return website;
         }
 
-        public void setGroupAdmin(String groupAdmin) {
-            this.groupAdmin = groupAdmin;
+        public void setWebsite(String website) {
+            this.website = website;
         }
 
-        public String getChatStatus() {
-            return chatStatus;
+        public String getGroup_id() {
+            return group_id;
         }
 
-        public void setChatStatus(String chatStatus) {
-            this.chatStatus = chatStatus;
+        public void setGroup_id(String group_id) {
+            this.group_id = group_id;
         }
 
-        public String getDateTime() {
-            return dateTime;
+        public String getUser_name() {
+            return user_name;
         }
 
-        public void setDateTime(String dateTime) {
-            this.dateTime = dateTime;
+        public void setUser_name(String user_name) {
+            this.user_name = user_name;
         }
 
+        public String getImage() {
+            return image;
+        }
+
+        public void setImage(String image) {
+            this.image = image;
+        }
     }
 
     public class Bluedatum {

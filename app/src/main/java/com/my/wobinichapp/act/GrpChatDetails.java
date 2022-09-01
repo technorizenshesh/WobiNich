@@ -137,7 +137,7 @@ public class GrpChatDetails extends AppCompatActivity {
         });
 
         binding.LLSend.setOnClickListener(v -> {
-            if(!binding.edtInsert.getText().equals(""))
+            if(!binding.edtInsert.getText().toString().equals(""))
             {
                 if (sessionManager.isNetworkAvailable()) {
                     binding.progressBar.setVisibility(View.VISIBLE);
@@ -146,6 +146,8 @@ public class GrpChatDetails extends AppCompatActivity {
                     Toast.makeText(GrpChatDetails.this, R.string.checkInternet, Toast.LENGTH_SHORT).show();
                 }
             }
+            else Toast.makeText(GrpChatDetails.this, R.string.please_enter_message, Toast.LENGTH_SHORT).show();
+
         });
 
         if (sessionManager.isNetworkAvailable()) {

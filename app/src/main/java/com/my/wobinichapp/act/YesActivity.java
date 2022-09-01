@@ -32,6 +32,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -56,11 +57,14 @@ import com.my.wobinichapp.utils.RealPathUtil;
 import com.my.wobinichapp.utils.RetrofitClients;
 import com.my.wobinichapp.utils.SessionManager;
 
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -144,27 +148,31 @@ public class YesActivity extends AppCompatActivity {
         });
 
         binding.imgblue1.setOnClickListener(v -> {
-            if (idImgblue) {
-                binding.lloneblue.setVisibility(View.GONE);
-                binding.recyclerblue.setVisibility(View.VISIBLE);
-                idImgblue = false;
-            } else {
-                binding.lloneblue.setVisibility(View.VISIBLE);
-                binding.recyclerblue.setVisibility(View.GONE);
-                idImgblue = true;
+            if(modelListBlue.size()>1) {
+                if (idImgblue) {
+                    binding.lloneblue.setVisibility(View.GONE);
+                    binding.recyclerblue.setVisibility(View.VISIBLE);
+                    idImgblue = false;
+                } else {
+                    binding.lloneblue.setVisibility(View.VISIBLE);
+                    binding.recyclerblue.setVisibility(View.GONE);
+                    idImgblue = true;
+                }
             }
         });
 
         binding.imgpurple.setOnClickListener(v -> {
-            if (idImgpurple) {
-                binding.llonepurple1.setVisibility(View.GONE);
-                binding.recyclerPurple.setVisibility(View.VISIBLE);
-                idImgpurple = false;
-            } else {
-                binding.llonepurple1.setVisibility(View.VISIBLE);
-                binding.recyclerPurple.setVisibility(View.GONE);
-                idImgpurple = true;
-            }
+          if(modelListPurple.size()>1) {
+              if (idImgpurple) {
+                  binding.llonepurple1.setVisibility(View.GONE);
+                  binding.recyclerPurple.setVisibility(View.VISIBLE);
+                  idImgpurple = false;
+              } else {
+                  binding.llonepurple1.setVisibility(View.VISIBLE);
+                  binding.recyclerPurple.setVisibility(View.GONE);
+                  idImgpurple = true;
+              }
+          }
         });
 
         binding.img4.setOnClickListener(v -> {
@@ -468,45 +476,50 @@ public class YesActivity extends AppCompatActivity {
     }
 
     public void getFolderMthod() {
-
         String Type="yes";
 
         String User_id= Preference.get(YesActivity.this,Preference.KEY_USER_ID);
 
-        Call<GetFolderModel> call = RetrofitClients
+        Call<ResponseBody> call = RetrofitClients
                 .getInstance()
                 .getApi()
                 .get_folder(User_id,Type);
-        call.enqueue(new Callback<GetFolderModel>() {
+        call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<GetFolderModel> call, Response<GetFolderModel> response) {
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                binding.progressBar.setVisibility(View.GONE);
                 try {
+                    if (response.isSuccessful()) {
+                        String responseData = response.body() != null ? response.body().string() : "";
+                        JSONObject object = new JSONObject(responseData);
+                        Log.e("Get All Response==", responseData);
+                        if (object.getString("status").equalsIgnoreCase("1")) {
+                            binding.ivFolder.setVisibility(View.VISIBLE);
+                            binding.tvFolder.setVisibility(View.VISIBLE);
+                            binding.llFolder.setVisibility(View.VISIBLE);
+                            GetFolderModel model = new Gson().fromJson(responseData,GetFolderModel.class);
+                            modelList.clear();
+                            modelList.addAll(model.getResult());
+                            if(modelList !=null)
+                            {
+                                setAdapter(modelList);
+                            }
 
-                    binding.progressBar.setVisibility(View.GONE);
-
-                    GetFolderModel myclass = response.body();
-
-                    String status = String.valueOf(myclass.getStatus());
-                    String message = myclass.getMessage();
-
-                    if (status.equalsIgnoreCase("1")) {
-
-                       modelList = (ArrayList<GetFolderModel.Result>) myclass.getResult();
-
-                        if(modelList !=null)
-                        {
-                            setAdapter(modelList);
+                        } else {
+                           // Toast.makeText(YesActivity.this, object.getString("message"), Toast.LENGTH_SHORT).show();
+                            binding.ivFolder.setVisibility(View.GONE);
+                            binding.tvFolder.setVisibility(View.GONE);
+                            binding.llFolder.setVisibility(View.GONE);
                         }
-
-                    } else {
-
                     }
-                }catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
+
+
             }
             @Override
-            public void onFailure(Call<GetFolderModel> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
                 binding.progressBar.setVisibility(View.GONE);
             }
         });
@@ -558,59 +571,53 @@ public class YesActivity extends AppCompatActivity {
        String User_id= Preference.get(YesActivity.this,Preference.KEY_USER_ID);
        Log.e("user_id",User_id+"");
        
-        Call<GetPostBluVoilet> call = RetrofitClients
+        Call<ResponseBody> call = RetrofitClients
                 .getInstance()
                 .getApi()
                 .get_post_data(User_id);
-        call.enqueue(new Callback<GetPostBluVoilet>() {
+        call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<GetPostBluVoilet> call, Response<GetPostBluVoilet> response) {
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                binding.progressBar.setVisibility(View.GONE);
+
                 try {
+                    if (response.isSuccessful()) {
+                        String responseData = response.body() != null ? response.body().string() : "";
+                        JSONObject object = new JSONObject(responseData);
+                        Log.e("GetMy Post Response==", responseData);
+                        if (object.getString("status").equalsIgnoreCase("1")) {
+                            GetPostBluVoilet model = new Gson().fromJson(responseData,GetPostBluVoilet.class);
+                            modelListBlue.clear();
+                            modelListPurple.clear();
+                            modelListBlue.addAll(model.getBluedata());
+                            modelListPurple.addAll(model.getVoiletdata());
+                            if (modelListBlue.size()!=0) {
+                                binding.lloneblue.setVisibility(View.VISIBLE);
+                                binding.tvBlueNotFound.setVisibility(View.GONE);
+                                Glide.with(YesActivity.this).load(modelListBlue.get(0).getImage()).placeholder(R.drawable.frame).error(R.drawable.frame).into(binding.imgBlue);
+                                binding.tvUserName.setText(modelListBlue.get(0).getUserName());
+                                binding.tvComment.setText(modelListBlue.get(0).getMaps());
+                                binding.tvDate.setText(modelListBlue.get(0).getDateTime());
+                                setAdapterBlue(modelListBlue);
+                            } else {
+                                binding.tvBlueNotFound.setVisibility(View.VISIBLE);
+                                binding.lloneblue.setVisibility(View.GONE);
+                            }
 
-                    binding.progressBar.setVisibility(View.GONE);
-
-                    GetPostBluVoilet myclass = response.body();
-
-                    String status = String.valueOf(myclass.getStatus());
-                    String message = myclass.getMessage();
-
-                    if (status.equalsIgnoreCase("1")) {
-
-                        modelListBlue= (ArrayList<GetPostBluVoilet.Bluedatum>) myclass.getBluedata();
-
-                        modelListPurple= (ArrayList<GetPostBluVoilet.Voiletdatum>) myclass.getVoiletdata();
-
-                        if(!modelListBlue.isEmpty())
-                        {
-                            binding.lloneblue.setVisibility(View.VISIBLE);
-
-                           Glide.with(YesActivity.this).load(modelListBlue.get(0).getImage()).placeholder(R.drawable.frame).error(R.drawable.frame).into(binding.imgBlue);
-                            binding.tvUserName.setText(modelListBlue.get(0).getUserName());
-                            binding.tvComment.setText(modelListBlue.get(0).getMaps());
-                            binding.tvDate.setText(modelListBlue.get(0).getDateTime());
-
-                        }else
-                        {
-                            binding.lloneblue.setVisibility(View.GONE);
+                            if (modelListPurple.size()!=0) {
+                                binding.txtGrpName.setText(modelListPurple.get(0).getUser_name());
+                                binding.llonepurple1.setVisibility(View.VISIBLE);
+                                binding.tvVioletNotFound.setVisibility(View.GONE);
+                                Glide.with(YesActivity.this).load(modelListPurple.get(0).getImage()).placeholder(R.drawable.frame).error(R.drawable.frame).into(binding.imgpurple11);
+                                setAdapterPurple(modelListPurple);
+                            } else {
+                                binding.tvVioletNotFound.setVisibility(View.VISIBLE);
+                                binding.llonepurple1.setVisibility(View.GONE);
+                            }
                         }
+                        else {
 
-                        if(!modelListPurple.isEmpty())
-                        {
-                            binding.txtGrpName.setText(modelListPurple.get(0).getGroupName());
-                            binding.llonepurple1.setVisibility(View.VISIBLE);
-                            Glide.with(YesActivity.this).load(modelListPurple.get(0).getGroupImage()).placeholder(R.drawable.frame).error(R.drawable.frame).into(binding.imgpurple11);
-
-                        }else
-                        {
-                            binding.llonepurple1.setVisibility(View.GONE);
                         }
-
-
-                        setAdapterBlue(modelListBlue);
-
-                        setAdapterPurple(modelListPurple);
-
-                    } else {
 
                     }
                 } catch (Exception e) {
@@ -618,7 +625,7 @@ public class YesActivity extends AppCompatActivity {
                 }
             }
             @Override
-            public void onFailure(Call<GetPostBluVoilet> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
                 binding.progressBar.setVisibility(View.GONE);
             }
         });

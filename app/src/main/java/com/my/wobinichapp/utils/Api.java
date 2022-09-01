@@ -220,7 +220,7 @@ public interface Api {
 
     @FormUrlEncoded
     @POST(get_folder)
-    Call<GetFolderModel> get_folder(
+    Call<ResponseBody> get_folder(
             @Field("user_id") String user_id,
             @Field("type") String type
     );
@@ -246,7 +246,7 @@ public interface Api {
 
     @FormUrlEncoded
     @POST(get_post_data)
-    Call<GetPostBluVoilet> get_post_data(
+    Call<ResponseBody> get_post_data(
             @Field("user_id") String user_id
     );
 
@@ -336,6 +336,11 @@ public interface Api {
     @FormUrlEncoded
     @POST("add_user_answer")
     Call<ResponseBody>submit_answer(@FieldMap Map<String,String> params);
+
+
+    @FormUrlEncoded
+    @POST("update_user_answer")
+    Call<ResponseBody>check_answer(@FieldMap Map<String,String> params);
 
 
 }

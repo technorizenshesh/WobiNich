@@ -12,6 +12,7 @@
         <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
         <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_koln.xml" value="0.1875" />
         <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_koln_details.xml" value="0.1875" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_love.xml" value="0.1" />
         <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_meal_details.xml" value="0.1875" />
         <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/activity_personal_chat.xml" value="0.12454710144927536" />
@@ -22,6 +23,7 @@
         <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/item_grp_all_post.xml" value="0.20416666666666666" />
         <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/item_post_answer.xml" value="0.17291666666666666" />
         <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/item_yes_post_blue.xml" value="0.1" />
+        <entry key="..\:/MyProjects/WobiNich/app/src/main/res/layout/item_yes_post_purple.xml" value="0.15416666666666667" />
       </map>
     </option>
   </component>

@@ -44,22 +44,11 @@ public class YesPurplePostAdapter extends RecyclerView.Adapter<RecyclerView.View
             final GetPostBluVoilet.Voiletdatum model = getItem(position);
             final ViewHolder genericViewHolder = (ViewHolder) holder;
 
-
-            Glide.with(mContext)
-                    .load(model.getGroupImage())
-                    .centerCrop()
-                    .circleCrop()
-                    .into(genericViewHolder.imgBlue);
-
-/*
-
-            if(model.getGroupImage()!=null)
-            {
-                Glide.with(mContext).load(model.getGroupImage()).placeholder(R.drawable.frame).error(R.drawable.frame).into(genericViewHolder.imgBlue);
+            if(model.getImage()!=null) {
+                Glide.with(mContext).load(model.getImage()).placeholder(R.drawable.dummy).error(R.drawable.frame).into(genericViewHolder.imgBlue);
             }
-*/
-
             genericViewHolder.txtPurple.setText(model.getGroupName());
+
         }
     }
 

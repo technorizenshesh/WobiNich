@@ -109,6 +109,21 @@ public class ChallengeModel {
         private String postId;
 
 
+        @SerializedName("answered")
+        @Expose
+        private String answered;
+
+        @SerializedName("group_name")
+        @Expose
+        private String groupName;
+
+        public String getGroupName() {
+            return groupName;
+        }
+        public void setGroupName(String groupName) {
+            this.groupName = groupName;
+        }
+
         public String getId() {
             return id;
         }
@@ -269,6 +284,15 @@ public class ChallengeModel {
             this.timeAgo = timeAgo;
         }
 
+
+        public String getAnswered() {
+            return answered;
+        }
+
+        public void setAnswered(String answered) {
+            this.answered = answered;
+        }
+
         public class UserAnswer {
 
             @SerializedName("id")
@@ -277,9 +301,6 @@ public class ChallengeModel {
             @SerializedName("post_id")
             @Expose
             private String postId;
-            @SerializedName("answer_user")
-            @Expose
-            private String answerUser;
             @SerializedName("post_user")
             @Expose
             private String postUser;
@@ -302,6 +323,31 @@ public class ChallengeModel {
             @Expose
             private String username;
 
+            @SerializedName("answer_is")
+            @Expose
+            private String answer_is;
+
+            @SerializedName("ans_chk")
+            @Expose
+            private String ansChk;
+
+            public String getAnsChk() {
+                return ansChk;
+            }
+
+            public void setAnsChk(String ansChk) {
+                this.ansChk = ansChk;
+            }
+
+            public String getAnswer_is() {
+                return answer_is;
+            }
+
+            public void setAnswer_is(String answer_is) {
+                this.answer_is = answer_is;
+            }
+
+
             public String getId() {
                 return id;
             }
@@ -316,14 +362,6 @@ public class ChallengeModel {
 
             public void setPostId(String postId) {
                 this.postId = postId;
-            }
-
-            public String getAnswerUser() {
-                return answerUser;
-            }
-
-            public void setAnswerUser(String answerUser) {
-                this.answerUser = answerUser;
             }
 
             public String getPostUser() {

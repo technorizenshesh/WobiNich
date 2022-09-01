@@ -55,6 +55,7 @@
         >
 
         <ImageView
+            android:id="@+id/ivRight"
             android:src="@drawable/check_circle_green"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
@@ -62,6 +63,7 @@
 
 
         <ImageView
+            android:id="@+id/ivWrong"
             android:layout_marginLeft="@dimen/_10sdp"
             android:src="@drawable/check_circle_red"
             android:layout_width="@dimen/_30sdp"

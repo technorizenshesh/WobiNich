@@ -50,7 +50,7 @@ public class AdapterPostAnswer extends RecyclerView.Adapter<AdapterPostAnswer.My
                     holder.binding.ivWrong.setVisibility(View.VISIBLE);
                     holder.binding.ivRight.setVisibility(View.GONE);
 
-                } else if(arrayList.get(position).getAnswer_is().equals("Wrong")) {
+                } else if(arrayList.get(position).getAnswer_is().equals("Right")) {
                     holder.binding.ivWrong.setVisibility(View.GONE);
                     holder.binding.ivRight.setVisibility(View.VISIBLE);
                 }

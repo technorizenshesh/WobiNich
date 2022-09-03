@@ -27,7 +27,7 @@ public class AdapterPost extends RecyclerView.Adapter<AdapterPost.MyViewHolder> 
     OnAnswerListener listener;
     OnAnsRightWrongListener listener2;
 
-    public AdapterPost(Context context, ArrayList<ChallengeModel.Result> arrayList, OnAnswerListener listener,OnAnsRightWrongListener listener2) {
+    public AdapterPost(Context context, ArrayList<ChallengeModel.Result> arrayList, OnAnswerListener listener, OnAnsRightWrongListener listener2) {
         this.context = context;
         this.arrayList = arrayList;
         this.listener = listener;
@@ -55,7 +55,7 @@ public class AdapterPost extends RecyclerView.Adapter<AdapterPost.MyViewHolder> 
             holder.binding.RRBottom.setVisibility(View.GONE);
             holder.binding.tvUserName.setText(arrayList.get(position).getGroupName());
             holder.binding.rvPostAnswer.setVisibility(View.VISIBLE);
-            holder.binding.rvPostAnswer.setAdapter(new AdapterPostAnswer(context, arrayList.get(position).getUserAnswer(),AdapterPost.this));
+            holder.binding.rvPostAnswer.setAdapter(new AdapterPostAnswer(context, arrayList.get(position).getUserAnswer(), AdapterPost.this));
 
         } else {
             if (arrayList.get(position).getAnswered().equals("Yes")) {
@@ -63,7 +63,12 @@ public class AdapterPost extends RecyclerView.Adapter<AdapterPost.MyViewHolder> 
                 //     holder.binding.llOne.setVisibility(View.GONE);
                 holder.binding.RRBottom.setVisibility(View.GONE);
 
-            } else {
+            } else if (arrayList.get(position).getAnswered().equals("check")) {
+                holder.binding.rlMain.setVisibility(View.VISIBLE);
+                //     holder.binding.llOne.setVisibility(View.GONE);
+                holder.binding.RRBottom.setVisibility(View.GONE);
+
+            } else if (arrayList.get(position).getAnswered().equals("No")) {
                 holder.binding.rlMain.setVisibility(View.VISIBLE);
                 //     holder.binding.llOne.setVisibility(View.VISIBLE);
                 holder.binding.RRBottom.setVisibility(View.VISIBLE);
@@ -84,7 +89,7 @@ public class AdapterPost extends RecyclerView.Adapter<AdapterPost.MyViewHolder> 
 
     @Override
     public void onChk(String id, boolean chk) {
-      listener2.onRightWrong(id,chk);
+        listener2.onRightWrong(id, chk);
     }
 
 

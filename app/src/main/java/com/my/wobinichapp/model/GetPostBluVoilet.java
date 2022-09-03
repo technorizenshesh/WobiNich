@@ -14,12 +14,24 @@ public class GetPostBluVoilet {
     @SerializedName("voiletdata")
     @Expose
     private List<Voiletdatum> voiletdata = null;
+
+    @SerializedName("greendata")
+    @Expose
+    private List<Greendatum> greendata = null;
     @SerializedName("message")
     @Expose
     private String message;
     @SerializedName("status")
     @Expose
     private String status;
+
+    public List<Greendatum> getGreendata() {
+        return greendata;
+    }
+
+    public void setGreendata(List<Greendatum> greendata) {
+        this.greendata = greendata;
+    }
 
     public List<Bluedatum> getBluedata() {
         return bluedata;
@@ -76,9 +88,9 @@ public class GetPostBluVoilet {
         @SerializedName("website")
         @Expose
         private String website;
-        @SerializedName("group_id")
+       /* @SerializedName("group_id")
         @Expose
-        private String group_id;
+        private String group_id;*/
         @SerializedName("user_name")
         @Expose
         private String user_name;
@@ -153,13 +165,13 @@ public class GetPostBluVoilet {
             this.website = website;
         }
 
-        public String getGroup_id() {
+       /* public String getGroup_id() {
             return group_id;
         }
 
         public void setGroup_id(String group_id) {
             this.group_id = group_id;
-        }
+        }*/
 
         public String getUser_name() {
             return user_name;
@@ -230,9 +242,17 @@ public class GetPostBluVoilet {
         @Expose
         private String userName;
 
+        @SerializedName("group_name")
+        @Expose
+        private String groupName;
 
+        public String getGroupName() {
+            return groupName;
+        }
 
-
+        public void setGroupName(String groupName) {
+            this.groupName = groupName;
+        }
 
         public String getId() {
             return id;
@@ -363,6 +383,145 @@ public class GetPostBluVoilet {
             this.userName = userName;
         }
     }
+
+    public class Greendatum {
+
+        @SerializedName("id")
+        @Expose
+        private String id;
+        @SerializedName("user_id")
+        @Expose
+        private String userId;
+        @SerializedName("lat")
+        @Expose
+        private String lat;
+        @SerializedName("lon")
+        @Expose
+        private String lon;
+        @SerializedName("comment")
+        @Expose
+        private String comment;
+        @SerializedName("maps")
+        @Expose
+        private String maps;
+        @SerializedName("website")
+        @Expose
+        private String website;
+       /* @SerializedName("group_id")
+        @Expose
+        private String group_id;*/
+        @SerializedName("image")
+        @Expose
+        private String image;
+        @SerializedName("group_name")
+        @Expose
+        private String groupName;
+        @SerializedName("user_name")
+        @Expose
+        private String userName;
+
+        @SerializedName("date_time")
+        @Expose
+        private String dateTime;
+
+        public String getUserName() {
+            return userName;
+        }
+
+        public void setUserName(String userName) {
+            this.userName = userName;
+        }
+
+        public String getDateTime() {
+            return dateTime;
+        }
+
+        public void setDateTime(String dateTime) {
+            this.dateTime = dateTime;
+        }
+
+        public String getGroupName() {
+            return groupName;
+        }
+
+        public void setGroupName(String groupName) {
+            this.groupName = groupName;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getUserId() {
+            return userId;
+        }
+
+        public void setUserId(String userId) {
+            this.userId = userId;
+        }
+
+        public String getLat() {
+            return lat;
+        }
+
+        public void setLat(String lat) {
+            this.lat = lat;
+        }
+
+        public String getLon() {
+            return lon;
+        }
+
+        public void setLon(String lon) {
+            this.lon = lon;
+        }
+
+        public String getComment() {
+            return comment;
+        }
+
+        public void setComment(String comment) {
+            this.comment = comment;
+        }
+
+        public String getMaps() {
+            return maps;
+        }
+
+        public void setMaps(String maps) {
+            this.maps = maps;
+        }
+
+        public String getWebsite() {
+            return website;
+        }
+
+        public void setWebsite(String website) {
+            this.website = website;
+        }
+
+       /* public String getGroup_id() {
+            return group_id;
+        }
+
+        public void setGroup_id(String group_id) {
+            this.group_id = group_id;
+        }*/
+
+
+        public String getImage() {
+            return image;
+        }
+
+        public void setImage(String image) {
+            this.image = image;
+        }
+    }
+
 
 }
 

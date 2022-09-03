@@ -252,86 +252,6 @@
 
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:visibility="gone"
-                    android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_75sdp"
-                    >
-
-                    <LinearLayout
-                        android:id="@+id/img3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        >
-
-                        <ImageView
-                            android:scaleType="fitXY"
-                            android:src="@drawable/pink_arw"
-                            android:layout_width="@dimen/_20sdp"
-                            android:layout_height="@dimen/_20sdp"
-                            >
-                        </ImageView>
-
-                        <ImageView
-                            android:id="@+id/imgPurple"
-                            android:layout_marginLeft="@dimen/_10sdp"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/frame"
-                            android:layout_width="@dimen/_90sdp"
-                            android:layout_height="@dimen/_70sdp"
-                            >
-                        </ImageView>
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:id="@+id/llgi"
-                        android:layout_marginLeft="@dimen/_20sdp"
-                        android:layout_centerInParent="true"
-                        android:layout_toRightOf="@+id/img3"
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        >
-
-                        <TextView
-                            android:fontFamily="@font/poppins_semibold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="To Group Friends      "
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp" />
-
-                        <RadioButton
-                            android:layout_marginTop="-5dp"
-                            android:textColor="@color/black"
-                            android:buttonTint="@color/purple"
-                            android:checked="true"
-                            android:text="Give Up"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            >
-
-                        </RadioButton>
-
-                        <TextView
-                            android:layout_marginTop="-5dp"
-                            android:layout_marginLeft="@dimen/_5sdp"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="ok"
-                            android:textColor="@color/purple"
-                            android:textSize="@dimen/_12sdp"
-                            />
-
-
-                    </LinearLayout>
-
-                </RelativeLayout>
 
                 <LinearLayout
                     android:visibility="gone"
@@ -523,9 +443,7 @@
                     android:layerType="software"
                     app:tint="@color/lightblue" />
 
-                <!--
-                                violate end
-                -->
+
 
 
                 <!--green start-->
@@ -554,70 +472,72 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:orientation="vertical"
-                        android:id="@+id/llone"
-                        android:layout_toRightOf="@+id/img2"
+                        android:id="@+id/lloneGreen"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        >
+                        android:layout_toRightOf="@+id/img2"
+                        android:orientation="horizontal">
 
+<!--
                         <TextView
-                            android:layout_marginTop="@dimen/_30sdp"
-                            android:gravity="center"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/poppins_semibold"
+                            android:id="@+id/tvGreenNotFound"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_30sdp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:gravity="center"
                             android:text="No Data."
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp" />
+                            android:textSize="@dimen/_12sdp"
+                            android:visibility="visible" />
+-->
 
 
                         <ImageView
-                            android:visibility="gone"
                             android:id="@+id/imgGreen"
+                            android:layout_width="@dimen/_90sdp"
+                            android:layout_height="@dimen/_70sdp"
                             android:layout_marginLeft="@dimen/_10sdp"
                             android:scaleType="fitXY"
                             android:src="@drawable/frame"
-                            android:layout_width="@dimen/_90sdp"
-                            android:layout_height="@dimen/_70sdp"
-                            >
-                        </ImageView>
+                            android:visibility="visible" />
 
                         <LinearLayout
-                            android:visibility="gone"
                             android:id="@+id/llGreenOne"
-                            android:layout_marginLeft="@dimen/_20sdp"
-                            android:layout_centerInParent="true"
-                            android:orientation="vertical"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            >
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:orientation="vertical"
+                            android:visibility="visible">
 
                             <TextView
-                                android:fontFamily="@font/poppins_semibold"
-                                android:layout_width="wrap_content"
+                                android:id="@+id/tvGreenName"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semibold"
                                 android:text="John SMith"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_12sdp" />
 
                             <TextView
-                                android:fontFamily="@font/poppins_semibold"
+                                android:id="@+id/tvGreenComment"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semibold"
                                 android:text="EL Sol, Madraid, Spain"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_12sdp" />
 
                             <TextView
-                                android:fontFamily="@font/poppins_semibold"
+                                android:id="@+id/tvGreenDate"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semibold"
                                 android:text="19-11-2021"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_12sdp"
-                                />
+                                android:textSize="@dimen/_12sdp" />
 
 
                         </LinearLayout>
@@ -628,15 +548,26 @@
                         android:layout_width="match_parent"
                         android:layout_margin="@dimen/_5sdp"
                         android:visibility="gone"
-                        android:layout_below="@+id/llone"
-                        android:id="@+id/recyclerMyPost"
+                        android:layout_below="@+id/lloneGreen"
+                        android:id="@+id/recyclerGreen"
                         android:nestedScrollingEnabled="false"
                         android:layout_toRightOf="@+id/img2"
                         android:layout_height="wrap_content"
                         >
                     </androidx.recyclerview.widget.RecyclerView>
 
-
+                    <TextView
+                        android:id="@+id/tvGreenNotFound"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center"
+                        android:text="No Data."
+                        android:visibility="gone"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
 
                 </RelativeLayout>
 

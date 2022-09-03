@@ -43,6 +43,7 @@ import com.my.wobinichapp.R;
 import com.my.wobinichapp.adapter.GerFolderAdapter;
 import com.my.wobinichapp.adapter.GrpMemberAdapter;
 import com.my.wobinichapp.adapter.YesBluePostAdapter;
+import com.my.wobinichapp.adapter.YesGreenPostAdapter;
 import com.my.wobinichapp.adapter.YesMyPostAdapter;
 import com.my.wobinichapp.adapter.YesPurplePostAdapter;
 import com.my.wobinichapp.databinding.ActivityYesBinding;
@@ -85,11 +86,13 @@ public class YesActivity extends AppCompatActivity {
     YesMyPostAdapter mAdapter1;
     YesBluePostAdapter mAdapterblue;
     YesPurplePostAdapter mAdapterPurple;
+    YesGreenPostAdapter mAdapterGreen;
     private ArrayList<GetFolderModel.Result> modelList = new ArrayList<>();
     private ArrayList<GetPostModel.Result> modelList1 = new ArrayList<>();
 
     ArrayList<GetPostBluVoilet.Bluedatum> modelListBlue=new ArrayList<>();
     ArrayList<GetPostBluVoilet.Voiletdatum> modelListPurple=new ArrayList<>();
+    ArrayList<GetPostBluVoilet.Greendatum> modelListGreen=new ArrayList<>();
 
 
     private SessionManager sessionManager;
@@ -136,14 +139,16 @@ public class YesActivity extends AppCompatActivity {
 
 
         binding.img2.setOnClickListener(v -> {
-            if (idImg) {
-                binding.llone.setVisibility(View.GONE);
-                binding.recyclerMyPost.setVisibility(View.VISIBLE);
-                idImg = false;
-            }else {
-                binding.llone.setVisibility(View.VISIBLE);
-                binding.recyclerMyPost.setVisibility(View.GONE);
-                idImg = true;
+            if(modelListGreen.size()>1) {
+                if (idImg) {
+                    binding.lloneGreen.setVisibility(View.GONE);
+                    binding.recyclerGreen.setVisibility(View.VISIBLE);
+                    idImg = false;
+                } else {
+                    binding.lloneGreen.setVisibility(View.VISIBLE);
+                    binding.recyclerGreen.setVisibility(View.GONE);
+                    idImg = true;
+                }
             }
         });
 
@@ -185,7 +190,7 @@ public class YesActivity extends AppCompatActivity {
             }
         });
 
-        binding.img3.setOnClickListener(v -> {
+     /*   binding.img3.setOnClickListener(v -> {
             if (idImg2) {
                 binding.LLMainFilePurple.setVisibility(View.VISIBLE);
                 idImg2 = false;
@@ -193,7 +198,7 @@ public class YesActivity extends AppCompatActivity {
                 binding.LLMainFilePurple.setVisibility(View.GONE);
                 idImg2 = true;
             }
-        });
+        });*/
 
         binding.llGreenOne.setOnClickListener(v -> {
           //  startActivity(new Intent(YesActivity.this, AllGrpUserList.class));
@@ -253,7 +258,7 @@ public class YesActivity extends AppCompatActivity {
 
         });
 
-        binding.imgPurple.setOnClickListener(v -> {
+      /*  binding.imgPurple.setOnClickListener(v -> {
 
             startActivity(new Intent(YesActivity.this, WobiNichCommentActivity.class));
 
@@ -267,7 +272,7 @@ public class YesActivity extends AppCompatActivity {
 
         binding.LLMainFilePurple.setOnClickListener(v -> {
             startActivity(new Intent(YesActivity.this, WobiNichCommentActivity.class));
-        });
+        });*/
 
         binding.RRbluewTwo.setOnClickListener(v -> {
             startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
@@ -284,6 +289,7 @@ public class YesActivity extends AppCompatActivity {
     }
 
 
+/*
     private void setAdapter1(ArrayList<GetPostModel.Result> modelList1) {
 
         mAdapter1 = new YesMyPostAdapter(YesActivity.this, modelList1);
@@ -305,6 +311,7 @@ public class YesActivity extends AppCompatActivity {
             }
         });
     }
+*/
 
 
     private void setAdapterBlue(ArrayList<GetPostBluVoilet.Bluedatum> modelList1) {
@@ -340,6 +347,28 @@ public class YesActivity extends AppCompatActivity {
                // startActivity(new Intent(YesActivity.this, WobiNichCommentActivity.class));
                 startActivity(new Intent(YesActivity.this, GroupImage.class));
             }
+        });
+    }
+
+
+    private void setAdapterGreen(ArrayList<GetPostBluVoilet.Greendatum> modelList1) {
+
+        mAdapterGreen = new YesGreenPostAdapter(YesActivity.this, modelList1);
+        binding.recyclerGreen.setHasFixedSize(true);
+        // use a linear layout manager
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(YesActivity.this);
+        binding.recyclerGreen.setLayoutManager(linearLayoutManager);
+        binding.recyclerGreen.setAdapter(mAdapterGreen);
+
+        mAdapterGreen.SetOnItemClickListener(new YesGreenPostAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position, GetPostBluVoilet.Greendatum model) {
+                // startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
+                // startActivity(new Intent(YesActivity.this, WobiNichCommentActivity.class));
+               // startActivity(new Intent(YesActivity.this, GroupImage.class));
+            }
+
+
         });
     }
 
@@ -589,8 +618,11 @@ public class YesActivity extends AppCompatActivity {
                             GetPostBluVoilet model = new Gson().fromJson(responseData,GetPostBluVoilet.class);
                             modelListBlue.clear();
                             modelListPurple.clear();
+                            modelListGreen.clear();
                             modelListBlue.addAll(model.getBluedata());
                             modelListPurple.addAll(model.getVoiletdata());
+                            modelListGreen.addAll(model.getGreendata());
+
                             if (modelListBlue.size()!=0) {
                                 binding.lloneblue.setVisibility(View.VISIBLE);
                                 binding.tvBlueNotFound.setVisibility(View.GONE);
@@ -605,15 +637,30 @@ public class YesActivity extends AppCompatActivity {
                             }
 
                             if (modelListPurple.size()!=0) {
-                                binding.txtGrpName.setText(modelListPurple.get(0).getUser_name());
                                 binding.llonepurple1.setVisibility(View.VISIBLE);
                                 binding.tvVioletNotFound.setVisibility(View.GONE);
+                                binding.txtGrpName.setText(modelListPurple.get(0).getGroupName());
                                 Glide.with(YesActivity.this).load(modelListPurple.get(0).getImage()).placeholder(R.drawable.frame).error(R.drawable.frame).into(binding.imgpurple11);
                                 setAdapterPurple(modelListPurple);
                             } else {
                                 binding.tvVioletNotFound.setVisibility(View.VISIBLE);
                                 binding.llonepurple1.setVisibility(View.GONE);
                             }
+
+                            if (modelListGreen.size()!=0) {
+                                binding.lloneGreen.setVisibility(View.VISIBLE);
+                                binding.tvGreenNotFound.setVisibility(View.GONE);
+                                Glide.with(YesActivity.this).load(modelListGreen.get(0).getImage()).placeholder(R.drawable.frame).error(R.drawable.frame).into(binding.imgGreen);
+                                binding.tvGreenName.setText(modelListGreen.get(0).getGroupName());
+                                binding.tvGreenComment.setText(modelListGreen.get(0).getMaps());
+                                binding.tvGreenDate.setText(modelListGreen.get(0).getDateTime());
+                                setAdapterGreen(modelListGreen);
+                            } else {
+                                binding.tvGreenNotFound.setVisibility(View.VISIBLE);
+                                binding.lloneGreen.setVisibility(View.GONE);
+                            }
+
+
                         }
                         else {
 

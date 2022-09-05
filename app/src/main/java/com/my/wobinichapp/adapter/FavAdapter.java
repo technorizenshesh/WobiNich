@@ -12,22 +12,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.my.wobinichapp.R;
+import com.my.wobinichapp.model.GetFavModel;
 import com.my.wobinichapp.model.GetPostBluVoilet;
 
 import java.util.ArrayList;
 
-public class YesGreenPostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class FavAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private Context mContext;
-    private ArrayList<GetPostBluVoilet.Greendatum> modelList;
+    private ArrayList<GetFavModel.Result> modelList;
     private OnItemClickListener mItemClickListener;
 
-    public YesGreenPostAdapter(Context context, ArrayList<GetPostBluVoilet.Greendatum> modelList) {
+    public FavAdapter(Context context, ArrayList<GetFavModel.Result> modelList) {
         this.mContext = context;
         this.modelList = modelList;
     }
 
-    public void updateList(ArrayList<GetPostBluVoilet.Greendatum> modelList) {
+    public void updateList(ArrayList<GetFavModel.Result> modelList) {
         this.modelList = modelList;
         notifyDataSetChanged();
     }
@@ -41,9 +42,9 @@ public class YesGreenPostAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         //Here you can fill your row view
-        if (holder instanceof ViewHolder) {
-            final GetPostBluVoilet.Greendatum model = getItem(position);
-            final ViewHolder genericViewHolder = (ViewHolder) holder;
+        if (holder instanceof FavAdapter.ViewHolder) {
+            final GetFavModel.Result model = getItem(position);
+            final FavAdapter.ViewHolder genericViewHolder = (FavAdapter.ViewHolder) holder;
 
             if(model.getImage()!=null)
             {
@@ -54,19 +55,16 @@ public class YesGreenPostAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
 
             }
+
+
             genericViewHolder.relative_searchBtn.setOnClickListener(v -> {
-                mItemClickListener.onItemClick( position, modelList.get(position));
-
-            });
-
-          /*  genericViewHolder.relative_searchBtn.setOnClickListener(v -> {
                 // Toast.makeText(mContext, "Single Time", Toast.LENGTH_SHORT).show();
             });
             genericViewHolder.relative_searchBtn.setOnLongClickListener(v -> {
 
                 // Toast.makeText(mContext, "Long Time", Toast.LENGTH_SHORT).show();
                 return false;
-            });*/
+            });
 
             // genericViewHolder.txtGrpName.setText(model.getFolderName());
         }
@@ -81,12 +79,12 @@ public class YesGreenPostAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         this.mItemClickListener = mItemClickListener;
     }
 
-    private GetPostBluVoilet.Greendatum getItem(int position) {
+    private GetFavModel.Result getItem(int position) {
         return modelList.get(position);
     }
 
     public interface OnItemClickListener {
-        void onItemClick( int position, GetPostBluVoilet.Greendatum model);
+        void onItemClick(View view, int position, GetFavModel.Result model);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -106,7 +104,12 @@ public class YesGreenPostAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             this.relative_searchBtn=itemView.findViewById(R.id.relative_searchBtn);
             //  this.ImgIcon=itemView.findViewById(R.id.ImgIcon);
 
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mItemClickListener.onItemClick(itemView, getAdapterPosition(), modelList.get(getAdapterPosition()));
+                }
+            });
         }
     }
 

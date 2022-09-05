@@ -343,4 +343,22 @@ public interface Api {
     Call<ResponseBody>check_answer(@FieldMap Map<String,String> params);
 
 
+    @FormUrlEncoded
+    @POST("get_post_detail")
+    Call<ResponseBody>post_detail(@FieldMap Map<String,String> params);
+
+
+    @FormUrlEncoded
+    @POST("add_favorite")
+    Call<ResponseBody>postFav(@FieldMap Map<String,String> params);
+
+
+    @FormUrlEncoded
+    @POST("get_favorite")
+    Call<ResponseBody>getAllFav(@FieldMap Map<String,String> params);
+
+
+
+
+
 }

@@ -118,11 +118,13 @@
             </LinearLayout>
 
 
+            <!--green start-->
+
             <RelativeLayout
-                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_70sdp"
+                android:layout_height="wrap_content"
                 >
 
                 <LinearLayout
@@ -132,7 +134,6 @@
                     >
 
                     <ImageView
-                        android:id="@+id/imgArrow"
                         android:scaleType="fitXY"
                         android:src="@drawable/green_arw"
                         android:layout_width="@dimen/_20sdp"
@@ -140,67 +141,118 @@
                         >
                     </ImageView>
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lloneGreen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/img2"
+                    android:orientation="horizontal">
+
+                    <!--
+                                            <TextView
+                                                android:id="@+id/tvGreenNotFound"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:layout_marginTop="@dimen/_30sdp"
+                                                android:fontFamily="@font/poppins_semibold"
+                                                android:gravity="center"
+                                                android:text="No Data."
+                                                android:textColor="@color/black"
+                                                android:textSize="@dimen/_12sdp"
+                                                android:visibility="visible" />
+                    -->
+
+
                     <ImageView
-                        android:id="@+id/img_click"
+                        android:id="@+id/imgGreen"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_70sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:scaleType="fitXY"
                         android:src="@drawable/frame"
-                        android:layout_width="@dimen/_80sdp"
-                        android:layout_height="@dimen/_60sdp"
-                        >
-                    </ImageView>
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        android:id="@+id/llGreenOne"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:id="@+id/tvGreenName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="John SMith"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:id="@+id/tvGreenComment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="EL Sol, Madraid, Spain"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:id="@+id/tvGreenDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="19-11-2021"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-
-                <LinearLayout
-                    android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_centerInParent="true"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:visibility="gone"
+                    android:layout_below="@+id/lloneGreen"
+                    android:id="@+id/recyclerGreen"
+                    android:nestedScrollingEnabled="false"
                     android:layout_toRightOf="@+id/img2"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     >
+                </androidx.recyclerview.widget.RecyclerView>
 
-                    <TextView
-                        android:fontFamily="@font/poppins_semibold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="John SMith"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp" />
-
-                    <TextView
-                        android:fontFamily="@font/poppins_semibold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="EL Sol, Madraid, Spain"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp" />
-
-                    <TextView
-                        android:fontFamily="@font/poppins_semibold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="19-11-2021"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"
-                        />
-
-
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/tvGreenNotFound"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center"
+                    android:text="No Data."
+                    android:visibility="gone"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
 
             </RelativeLayout>
 
             <LinearLayout
-                android:visibility="visible"
-                android:id="@+id/LLimg"
+                android:visibility="gone"
+                android:id="@+id/LLMainFile"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
 
                 <RelativeLayout
+                    android:id="@+id/RRGreenTwo"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_width="wrap_content"
@@ -208,7 +260,7 @@
                     >
 
                     <LinearLayout
-                        android:id="@+id/img3"
+                        android:id="@+id/img45"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         >
@@ -217,8 +269,8 @@
                             android:visibility="invisible"
                             android:scaleType="fitXY"
                             android:src="@drawable/green_arw"
-                            android:layout_width="@dimen/_20sdp"
-                            android:layout_height="@dimen/_20sdp"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
                             >
                         </ImageView>
 
@@ -226,8 +278,8 @@
                             android:layout_marginLeft="@dimen/_10sdp"
                             android:scaleType="fitXY"
                             android:src="@drawable/frame"
-                            android:layout_width="@dimen/_80sdp"
-                            android:layout_height="@dimen/_60sdp"
+                            android:layout_width="@dimen/_90sdp"
+                            android:layout_height="@dimen/_70sdp"
                             >
                         </ImageView>
 
@@ -237,7 +289,7 @@
                     <LinearLayout
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_centerInParent="true"
-                        android:layout_toRightOf="@+id/img3"
+                        android:layout_toRightOf="@+id/img45"
                         android:orientation="vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -274,6 +326,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/RRGreenThree"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_width="wrap_content"
@@ -281,7 +334,7 @@
                     >
 
                     <LinearLayout
-                        android:id="@+id/img4"
+                        android:id="@+id/img23"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         >
@@ -290,8 +343,8 @@
                             android:visibility="invisible"
                             android:scaleType="fitXY"
                             android:src="@drawable/green_arw"
-                            android:layout_width="@dimen/_20sdp"
-                            android:layout_height="@dimen/_20sdp"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
                             >
                         </ImageView>
 
@@ -299,17 +352,18 @@
                             android:layout_marginLeft="@dimen/_10sdp"
                             android:scaleType="fitXY"
                             android:src="@drawable/frame"
-                            android:layout_width="@dimen/_80sdp"
-                            android:layout_height="@dimen/_60sdp"
+                            android:layout_width="@dimen/_90sdp"
+                            android:layout_height="@dimen/_70sdp"
                             >
                         </ImageView>
 
                     </LinearLayout>
 
+
                     <LinearLayout
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_centerInParent="true"
-                        android:layout_toRightOf="@+id/img4"
+                        android:layout_toRightOf="@+id/img23"
                         android:orientation="vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -346,8 +400,6 @@
                 </RelativeLayout>
 
             </LinearLayout>
-
-
 
             <LinearLayout
                 android:layout_gravity="center"
@@ -376,14 +428,21 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-20sp"
-                android:scaleType="fitXY"
-                android:src="@drawable/green_line">
 
-            </ImageView>
+            <ImageView
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:src="@drawable/dotted_green"
+                android:layerType="software"
+                />
+
+
+            <!--green end-->
+
+
+
+
 
             <RelativeLayout
                 android:layout_marginRight="@dimen/_10sdp"

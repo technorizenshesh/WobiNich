@@ -19,19 +19,26 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.my.wobinichapp.Preference;
 import com.my.wobinichapp.R;
+import com.my.wobinichapp.adapter.FavAdapter;
 import com.my.wobinichapp.adapter.GerFolderAdapter;
+import com.my.wobinichapp.adapter.YesGreenPostAdapter;
 import com.my.wobinichapp.databinding.ActivityLoveBinding;
 import com.my.wobinichapp.model.CreateFolderModel;
+import com.my.wobinichapp.model.GetFavModel;
 import com.my.wobinichapp.model.GetFolderModel;
+import com.my.wobinichapp.model.GetPostBluVoilet;
 import com.my.wobinichapp.utils.RetrofitClients;
 import com.my.wobinichapp.utils.SessionManager;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -50,6 +57,9 @@ public class LoveActivity extends AppCompatActivity {
 
     GerFolderAdapter mAdapter;
     private ArrayList<GetFolderModel.Result> modelList = new ArrayList<>();
+    ArrayList<GetFavModel.Result> modelListGreen=new ArrayList<>();
+    boolean idImg = true;
+    FavAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,22 +68,22 @@ public class LoveActivity extends AppCompatActivity {
 
         sessionManager = new SessionManager(LoveActivity.this);
 
-        binding.imgArrow.setOnClickListener(v -> {
 
-            if(isImagShow)
-            {
-                binding.LLimg.setVisibility(View.VISIBLE);
 
-                isImagShow =false;
-
-            }else
-            {
-                binding.LLimg.setVisibility(View.GONE);
-
-                isImagShow =true;
+        binding.img2.setOnClickListener(v -> {
+            if(modelListGreen.size()>1) {
+                if (idImg) {
+                    binding.lloneGreen.setVisibility(View.GONE);
+                    binding.recyclerGreen.setVisibility(View.VISIBLE);
+                    idImg = false;
+                } else {
+                    binding.lloneGreen.setVisibility(View.VISIBLE);
+                    binding.recyclerGreen.setVisibility(View.GONE);
+                    idImg = true;
+                }
             }
-
         });
+
 
         binding.RRMenu.setOnClickListener(v -> {
 
@@ -96,7 +106,7 @@ public class LoveActivity extends AppCompatActivity {
 
         });
 
-        binding.imgClick.setOnClickListener(v -> {
+     /*   binding.imgClick.setOnClickListener(v -> {
             startActivity(new Intent(LoveActivity.this,WobinichDetailsActivity.class));
 
         });
@@ -109,7 +119,13 @@ public class LoveActivity extends AppCompatActivity {
         binding.img4.setOnClickListener(v -> {
             startActivity(new Intent(LoveActivity.this,WobinichDetailsActivity.class));
 
+        });*/
+
+        binding.RRBack.setOnClickListener(v ->
+        {
+            onBackPressed();
         });
+
 
 
         if (sessionManager.isNetworkAvailable()) {
@@ -118,6 +134,14 @@ public class LoveActivity extends AppCompatActivity {
         }else {
             Toast.makeText(LoveActivity.this, R.string.checkInternet, Toast.LENGTH_SHORT).show();
         }
+
+        if (sessionManager.isNetworkAvailable()) {
+            binding.progressBar.setVisibility(View.VISIBLE);
+            getFavList();
+        }else {
+            Toast.makeText(LoveActivity.this, R.string.checkInternet, Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private void setAdapter(ArrayList<GetFolderModel.Result> modelList) {
@@ -302,5 +326,80 @@ public class LoveActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    public void getFavList() {
+        String User_id= Preference.get(LoveActivity.this,Preference.KEY_USER_ID);
+        Map<String, String> map = new HashMap<>();
+        map.put("user_id", User_id);
+        Log.e("getAll Fav  Request", map.toString());
+        Call<ResponseBody> call = RetrofitClients.getInstance().getApi().getAllFav(map);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                binding.progressBar.setVisibility(View.GONE);
+                try {
+                    if (response.isSuccessful()) {
+                        String responseData = response.body() != null ? response.body().string() : "";
+                        JSONObject object = new JSONObject(responseData);
+                        Log.e("getAll Fav Response==", responseData);
+                        if (object.getString("status").equalsIgnoreCase("1")) {
+                            GetFavModel model = new Gson().fromJson(responseData,GetFavModel.class);
+                            modelListGreen.clear();
+                            modelListGreen.addAll(model.getResult());
+                            if (modelListGreen.size()!=0) {
+                                binding.lloneGreen.setVisibility(View.VISIBLE);
+                                binding.tvGreenNotFound.setVisibility(View.GONE);
+                                Glide.with(LoveActivity.this).load(modelListGreen.get(0).getImage()).placeholder(R.drawable.frame).error(R.drawable.frame).into(binding.imgGreen);
+                                binding.tvGreenName.setText(modelListGreen.get(0).getGroupName());
+                                binding.tvGreenComment.setText(modelListGreen.get(0).getMaps());
+                                binding.tvGreenDate.setText(modelListGreen.get(0).getDateTime());
+                                setAdapterGreen(modelListGreen);
+                            } else {
+                                binding.tvGreenNotFound.setVisibility(View.VISIBLE);
+                                binding.lloneGreen.setVisibility(View.GONE);
+                            }
+
+                        } else {
+                            binding.tvGreenNotFound.setVisibility(View.VISIBLE);
+                            binding.lloneGreen.setVisibility(View.GONE);
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                binding.progressBar.setVisibility(View.GONE);
+            }
+        });
+    }
+
+    private void setAdapterGreen(ArrayList<GetFavModel.Result> modelList1) {
+
+        adapter = new FavAdapter(LoveActivity.this, modelList1);
+        binding.recyclerGreen.setHasFixedSize(true);
+        // use a linear layout manager
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(LoveActivity.this);
+        binding.recyclerGreen.setLayoutManager(linearLayoutManager);
+        binding.recyclerGreen.setAdapter(adapter);
+
+        adapter.SetOnItemClickListener(new FavAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position, GetFavModel.Result model) {
+                // startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
+                // startActivity(new Intent(YesActivity.this, WobiNichCommentActivity.class));
+               // startActivity(new Intent(YesActivity.this, GroupImage.class));
+            }
+
+
+        });
+    }
+
+
+
 
 }

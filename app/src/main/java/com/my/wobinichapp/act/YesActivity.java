@@ -190,6 +190,10 @@ public class YesActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+
      /*   binding.img3.setOnClickListener(v -> {
             if (idImg2) {
                 binding.LLMainFilePurple.setVisibility(View.VISIBLE);
@@ -200,83 +204,10 @@ public class YesActivity extends AppCompatActivity {
             }
         });*/
 
-        binding.llGreenOne.setOnClickListener(v -> {
-          //  startActivity(new Intent(YesActivity.this, AllGrpUserList.class));
-            startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
-        });
-
-        binding.llBlueOne.setOnClickListener(v -> {
-            startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
-        });
-
-        binding.RRbluewThree.setOnClickListener(v -> {
-            startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
-        });
-
-        binding.RRGreenTwo.setOnClickListener(v -> {
-            startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
-        });
-
-        binding.RRGreenThree.setOnClickListener(v -> {
-            startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
-        });
-
-
-        binding.LLMainFile.setOnClickListener(v -> {
-
-            startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
-
-        });
-
-        binding.imgblue.setOnClickListener(v -> {
-
-            startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
-
-        });
-
-        binding.llBlueOne.setOnClickListener(v -> {
-
-            startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
-
-        });
-
-        binding.LLMainFileBlue.setOnClickListener(v -> {
-
-            startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
-
-        });
-
-        binding.imgGreen.setOnClickListener(v -> {
-
-            startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
-
-        });
-
-        binding.llGreenOne.setOnClickListener(v -> {
-
-            startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
-
-        });
-
-      /*  binding.imgPurple.setOnClickListener(v -> {
-
-            startActivity(new Intent(YesActivity.this, WobiNichCommentActivity.class));
-
-        });
-
-        binding.llgi.setOnClickListener(v -> {
-
-            startActivity(new Intent(YesActivity.this, WobiNichCommentActivity.class));
-
-        });
-
-        binding.LLMainFilePurple.setOnClickListener(v -> {
-            startActivity(new Intent(YesActivity.this, WobiNichCommentActivity.class));
-        });*/
-
-        binding.RRbluewTwo.setOnClickListener(v -> {
-            startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
-        });
+        binding.lloneGreen.setOnClickListener(v -> {
+                startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class)
+                .putExtra("id",modelListGreen.get(0).getId()));
+            });
 
         if (sessionManager.isNetworkAvailable()) {
             binding.progressBar.setVisibility(View.VISIBLE);
@@ -326,7 +257,8 @@ public class YesActivity extends AppCompatActivity {
         mAdapterblue.SetOnItemClickListener(new YesBluePostAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position, GetPostBluVoilet.Bluedatum model){
-                //startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
+             //   startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class)
+             //   .putExtra("id",modelList1.get(position).getId()));
             }
         });
     }
@@ -362,10 +294,13 @@ public class YesActivity extends AppCompatActivity {
 
         mAdapterGreen.SetOnItemClickListener(new YesGreenPostAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, int position, GetPostBluVoilet.Greendatum model) {
+            public void onItemClick( int position, GetPostBluVoilet.Greendatum model) {
                 // startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class));
                 // startActivity(new Intent(YesActivity.this, WobiNichCommentActivity.class));
-               // startActivity(new Intent(YesActivity.this, GroupImage.class));
+                startActivity(new Intent(YesActivity.this, WobinichDetailsActivity.class)
+                        .putExtra("id",model.getId()));
+                Log.e("post_id",model.getId());
+
             }
 
 

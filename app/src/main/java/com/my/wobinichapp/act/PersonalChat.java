@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -34,7 +35,7 @@ public class PersonalChat extends AppCompatActivity {
     ActivityPersonalChatBinding binding;
     Chat_Adapter_single mAdapter1;
     private ArrayList<SingleGetChatModel.Result> modelList_chat = new ArrayList<>();
-    String ReceiverId="";
+    String ReceiverId="",senderId="";
     private SessionManager sessionManager;
 
     private Timer timer;
@@ -54,6 +55,7 @@ public class PersonalChat extends AppCompatActivity {
               binding.txtMemberName.setText(MemberName);
               String MemberImage=intent.getStringExtra("MemberImage").toString();
               ReceiverId=intent.getStringExtra("ReceiverId").toString();
+            senderId = intent.getStringExtra("senderId").toString();
 
             if(!MemberImage.equalsIgnoreCase(""))
             {
@@ -137,12 +139,15 @@ public class PersonalChat extends AppCompatActivity {
 
     public void insertChatMethod()
     {
-        String Sender_id= Preference.get(PersonalChat.this,Preference.KEY_USER_ID);
+      //  String Sender_id= Preference.get(PersonalChat.this,Preference.KEY_USER_ID);
 
         Call<InsertGrpModel> call = RetrofitClients
                 .getInstance()
                 .getApi()
-                .insert_chat(Sender_id,ReceiverId,binding.edtInsert.getText().toString());
+                .insert_chat(senderId,ReceiverId,binding.edtInsert.getText().toString());
+        Log.e("sender_id",senderId);
+        Log.e("ReceiverId",ReceiverId);
+
         call.enqueue(new Callback<InsertGrpModel>() {
             @Override
             public void onResponse(Call<InsertGrpModel> call, Response<InsertGrpModel> response) {
@@ -186,7 +191,7 @@ public class PersonalChat extends AppCompatActivity {
         Call<SingleGetChatModel> call = RetrofitClients
                 .getInstance()
                 .getApi()
-                .get_chat(Sender_ID,ReceiverId);
+                .get_chat(senderId,ReceiverId);
         call.enqueue(new Callback<SingleGetChatModel>() {
             @Override
             public void onResponse(Call<SingleGetChatModel> call, Response<SingleGetChatModel> response) {

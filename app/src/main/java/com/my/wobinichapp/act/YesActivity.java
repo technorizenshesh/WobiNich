@@ -598,7 +598,12 @@ public class YesActivity extends AppCompatActivity {
 
                         }
                         else {
-
+                            binding.tvBlueNotFound.setVisibility(View.VISIBLE);
+                            binding.lloneblue.setVisibility(View.GONE);
+                            binding.tvVioletNotFound.setVisibility(View.VISIBLE);
+                            binding.llonepurple1.setVisibility(View.GONE);
+                            binding.tvGreenNotFound.setVisibility(View.VISIBLE);
+                            binding.lloneGreen.setVisibility(View.GONE);
                         }
 
                     }

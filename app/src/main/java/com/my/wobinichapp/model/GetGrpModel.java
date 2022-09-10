@@ -57,6 +57,11 @@ public class GetGrpModel {
         @SerializedName("id")
         @Expose
         private String id;
+
+        @SerializedName("group_id")
+        @Expose
+        private String groupId;
+
         @SerializedName("user_id")
         @Expose
         private String userId;
@@ -83,7 +88,19 @@ public class GetGrpModel {
         private String dateTime;
         @SerializedName("count")
         @Expose
-        private int count;
+        private String count;
+
+        @SerializedName("allcount")
+        @Expose
+        private String allCount;
+
+        public String getAllCount() {
+            return allCount;
+        }
+
+        public void setAllCount(String allCount) {
+            this.allCount = allCount;
+        }
 
         public String getId() {
             return id;
@@ -157,14 +174,21 @@ public class GetGrpModel {
             this.dateTime = dateTime;
         }
 
-        public int getCount() {
+        public String getCount() {
             return count;
         }
 
-        public void setCount(int count) {
+        public void setCount(String count) {
             this.count = count;
         }
 
+        public String getGroupId() {
+            return groupId;
+        }
+
+        public void setGroupId(String groupId) {
+            this.groupId = groupId;
+        }
     }
 }
 

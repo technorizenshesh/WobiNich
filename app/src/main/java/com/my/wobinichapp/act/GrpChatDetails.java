@@ -205,7 +205,8 @@ public class GrpChatDetails extends AppCompatActivity {
                     Toast.makeText(GrpChatDetails.this, "My Profile", Toast.LENGTH_SHORT).show();
                 }else
                 {
-                    startActivity(new Intent(GrpChatDetails.this,PersonalChat.class).putExtra("MemberName",model.getName()).putExtra("MemberImage",model.getImage()).putExtra("ReceiverId",model.getId()));
+                    startActivity(new Intent(GrpChatDetails.this,PersonalChat.class).putExtra("MemberName",model.getName()).putExtra("MemberImage",model.getImage()).putExtra("ReceiverId",model.getId())
+                            .putExtra("senderId",(Preference.get(GrpChatDetails.this,Preference.KEY_USER_ID))));
                 }
             }
         });

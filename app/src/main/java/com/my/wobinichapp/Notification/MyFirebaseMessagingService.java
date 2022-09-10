@@ -83,11 +83,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
 
         // if message contains a notification payload.
-        if (remoteMessage.getNotification() != null) {
+      /*  if (remoteMessage.getNotification() != null) {
 
             sendNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody(), remoteMessage.getData());
             // Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
-        }
+        }*/
 
     }
 
@@ -118,15 +118,22 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 JSONObject object = new JSONObject(data.get("message"));
                  status = object.optString("result");
                  Msg = object.optString("message");
-                 //Title = object.optString("title");
-                 Title = object.optString("name");
+
+               //  Title = object.optString("name");
                  key = object.optString("key");
                  type = object.optString("type");
-                 MemberName = object.optString("name");
-                 MemberImage = object.optString("MemberImage");
-                 ReceiverId = object.optString("receiver_id");
-                 Sender_Id = object.optString("sender_id");
-                 userimage = object.optString("userimage");
+                if(type.equals("Group Pos")) Title = "New Post";
+                else if (type.equals("Group Chat")) Title = "New Group Message";
+                else if(type.equals("Personal")) {
+                    Title = "New Message";
+                      MemberName = object.optString("name");
+                       MemberImage = object.optString("userimage");
+                      ReceiverId = object.optString("receiver_id");
+                       Sender_Id = object.optString("sender_id");
+                    //   userimage = object.optString("userimage");
+                }
+                else if (type.equals("User Ans")) Title = "New Answer";
+
                 //  Intent intent;
 
             }catch (Exception e)
@@ -253,12 +260,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         {
             if(type.equalsIgnoreCase("personal"))
             {
-                Preference.save(this,Preference.KEY_USER_ID,Sender_Id);
+                //Preference.save(this,Preference.KEY_USER_ID,Sender_Id);
 
                 intent = new Intent(this, PersonalChat.class);
                 intent.putExtra("MemberName",MemberName);
                 intent.putExtra("MemberImage",MemberImage);
                 intent.putExtra("ReceiverId",ReceiverId);
+                intent.putExtra("senderId",Sender_Id);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                 Intent intent1 = new Intent("filter_string");
@@ -298,9 +306,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                    .setStyle(new NotificationCompat.BigTextStyle().bigText(Msg))
                    .setSmallIcon(R.mipmap.logo)
                    .setLargeIcon(bmp)
-                   .setContentTitle(MemberName)
+                   .setContentTitle(Title)
                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                   .setContentText(Msg)
+                   .setContentText(key)
                    .setAutoCancel(true)
                    .setSound(defaultSoundUri)
                    .setContentIntent(pendingIntent);

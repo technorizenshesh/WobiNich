@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "367403195797",
-    "project_id": "wobinich-8bf50",
-    "storage_bucket": "wobinich-8bf50.appspot.com"
+    "project_number": "626089099523",
+    "project_id": "wobinich-5308b",
+    "storage_bucket": "wobinich-5308b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:367403195797:android:13cf8e2ae6d253d587ea9c",
+        "mobilesdk_app_id": "1:626089099523:android:afe521a8cb55f65978e936",
         "android_client_info": {
           "package_name": "com.my.wobinichapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "367403195797-d4tm23r5vhbqm5dl2og58k9ou0k5r2k3.apps.googleusercontent.com",
+          "client_id": "626089099523-nhen4f1491ibf9iv6poo4qhqdb12htnj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.my.wobinichapp",
-            "certificate_hash": "07601957272bd2cdcf2c4b144175d46a1c7cc098"
+            "certificate_hash": "4a54a0201b383cca1b8c056aecfb715e2f24fe05"
           }
         },
         {
-          "client_id": "367403195797-3k46via8n2r2eoe182or898o70di5kba.apps.googleusercontent.com",
+          "client_id": "626089099523-cgokama4spd4elqaj9c13tr3klrv9im2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAUBVsbw2NCPTevN5AJ7TTm0-id-d9MZyk"
+          "current_key": "AIzaSyB1Qu41zMYEfFsxuynuJFpa74usb_dmF58"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "367403195797-3k46via8n2r2eoe182or898o70di5kba.apps.googleusercontent.com",
+              "client_id": "626089099523-cgokama4spd4elqaj9c13tr3klrv9im2.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

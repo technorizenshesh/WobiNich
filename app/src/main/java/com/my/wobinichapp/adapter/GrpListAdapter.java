@@ -17,6 +17,8 @@ import com.my.wobinichapp.model.HomModel;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class GrpListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private Context mContext;
@@ -48,7 +50,7 @@ public class GrpListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
            genericViewHolder.txtGrpName.setText(model.getGroupName());
 
-            if(model.getCount() == 0)
+            if(model.getCount().equals("0"))
             {
                 genericViewHolder.txtCount.setVisibility(View.GONE);
 
@@ -118,7 +120,7 @@ public class GrpListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         private TextView txtGrpName;
         private TextView txtCount;
-        private ImageView imgLeftMenu1;
+        private CircleImageView imgLeftMenu1;
 
         public ViewHolder(final View itemView) {
             super(itemView);

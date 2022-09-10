@@ -195,7 +195,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position, GetGrpModel.Result model)
             {
-                Preference.save(HomeActivity.this,Preference.KEY_grp_id,model.getId());
+                Preference.save(HomeActivity.this,Preference.KEY_grp_id,model.getGroupId());
                 Preference.save(HomeActivity.this,Preference.KEY_grp_Name,model.getGroupName());
                 Preference.save(HomeActivity.this,Preference.KEY_grp_IMage,model.getGroupImage());
                 startActivity(new Intent(HomeActivity.this,GrpChatDetails.class));

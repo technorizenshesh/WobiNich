@@ -12,6 +12,7 @@ public static final String APP_PREF = "KapsiePreferences";
 
 public static SharedPreferences sp;
 public static String KEY_USER_ID = "user_id";
+public static String KEY_USE_ID = "user_id";
 public static String KEY_USER_status = "user_status";
 public static String KEY_USER_image = "user_image";
 public static String KEY_grp_id = "grp_id";
